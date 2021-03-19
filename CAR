@@ -1,13 +1,29 @@
-
+/**
+*@author 1092003 姜昱呈
+*@Version 1.0
+*@20210319
+*/
 #include <iostream>
 #include <string>
 using namespace std;
+/**
+*創建一個叫做ccar的類別
+*/
 class CCAR {
+/**
+ *不受此類別外的物件影響，也部會被繼承
+ */
 private:
 string nickname;
 protected:
+/**
+*宣告輪子和電燈
+*/
 int light;
 int wheel;
+/**
+*共用
+*/
 public:
 CCAR() :light(2)
 {
@@ -24,14 +40,23 @@ cout << "car's constructor(nickname=" << nickname << ")" << endl;
 {
 cout << "car's destructor" << "(" << nickname << ")" << endl;
 }
+/**
+ *成員函式
+ */
 void start()
 {
 cout << "car's start" << endl;
 }
+/**
+ *成員函式
+ */
 void stop()
 {
 cout << "car's stop" << endl;
 }
+/**
+ *成員函式
+ */
 void turn()
 {
 cout << "car's turn" << endl;
@@ -40,12 +65,24 @@ cout << "car's turn" << endl;
 //--------------------------
 class CBMW : public CCAR {
 public:
+/**
+*新增類別指數執行
+*/
 CBMW() { light = 4; wheel = 4; cout << "bmw's constructor" << endl; }
+/**
+*解構子當類別退出記憶體時執行
+*/
 ~CBMW() { cout << "bmw's destructor" << endl; }
+/**
+ *成員函式
+ */
 void Abs()
 {
 cout << "bmw's abs" << endl;
 }
+/**
+ *成員函式
+ */
 void start()
 {
 cout << "bmw's start" << endl;
@@ -58,8 +95,17 @@ CCAR::start();//scope operator
 int main(int argc, const char * argv[]) {
 CBMW bmw;
 // bmw.light=3;
+/**
+ *CBMW裡面的void start
+ */
 bmw.start();
+/**
+ *CBMW裡面的void Abs
+ */
 bmw.Abs();
+/**
+ *CBMW裡面的void stop
+ */
 bmw.stop();
 
 return 0;
